@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Are Ollas? The Ancient Watering Secret Your Plants Need | Azen Garden</title>
+  <meta name="description" content="Ollas are 4,000-year-old clay irrigation vessels that deliver water directly to plant roots via osmosis. Learn how this ancient technology works and why it's the best watering method for your garden." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --forest: #1B5E3F;
+      --sage: #A8D5BA;
+      --terracotta: #E8844B;
+      --cork: #C89E77;
+      --cream: #F5EFE6;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #1a1a1a; background: #fff; margin: 0; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(168,213,186,0.4);
+      box-shadow: 0 2px 16px rgba(27,94,63,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .btn-amazon-nav {
+      background: var(--terracotta); color: #fff; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em; padding: 10px 22px; border-radius: 6px; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(232,132,75,0.35); transition: background 0.2s, transform 0.15s;
+    }
+    .btn-amazon-nav:hover { background: #C96A30; transform: translateY(-1px); }
+
+    /* POST HERO */
+    .post-hero {
+      padding: 130px 24px 60px;
+      background: var(--cream);
+      position: relative; overflow: hidden;
+    }
+    .post-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(168,213,186,0.25) 0%, transparent 55%);
+    }
+    .post-hero-inner {
+      max-width: 820px; margin: 0 auto; position: relative;
+    }
+    .breadcrumb {
+      font-size: 13px; color: #888; margin-bottom: 16px; display: flex; gap: 6px; align-items: center;
+    }
+    .breadcrumb a { color: var(--forest); text-decoration: none; font-weight: 600; }
+    .breadcrumb a:hover { color: var(--terracotta); }
+    .post-tag {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 14px;
+      display: inline-block;
+    }
+    .post-hero h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(36px, 5.5vw, 60px); font-weight: 800; color: var(--forest);
+      line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase;
+      margin: 0 0 20px;
+    }
+    .post-hero .excerpt {
+      font-size: 18px; line-height: 1.7; color: #555; margin: 0 0 24px;
+    }
+    .post-meta { font-size: 13px; color: #999; display: flex; gap: 16px; flex-wrap: wrap; }
+    .post-meta span { display: flex; align-items: center; gap: 4px; }
+
+    /* POST FEATURED IMAGE */
+    .post-featured-img {
+      width: 100%; max-height: 480px; object-fit: cover; display: block;
+    }
+
+    /* ARTICLE LAYOUT */
+    .article-layout {
+      max-width: 1200px; margin: 0 auto; padding: 64px 24px 80px;
+      display: grid; grid-template-columns: 1fr 300px; gap: 64px; align-items: start;
+    }
+
+    /* ARTICLE BODY */
+    .article-body h2 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 32px; font-weight: 800; color: var(--forest);
+      text-transform: uppercase; margin: 44px 0 16px; letter-spacing: -0.01em;
+    }
+    .article-body h2:first-child { margin-top: 0; }
+
+    .article-body p {
+      font-size: 16px; line-height: 1.8; color: #333; margin: 0 0 20px;
+    }
+
+    .article-body ul, .article-body ol {
+      margin: 0 0 20px 20px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .article-body li { font-size: 16px; line-height: 1.7; color: #333; }
+    .article-body li strong { color: var(--forest); }
+
+    .article-body .callout {
+      background: var(--cream); border-left: 4px solid var(--sage);
+      padding: 20px 24px; border-radius: 0 10px 10px 0;
+      margin: 28px 0; font-size: 16px; line-height: 1.7; color: #444;
+    }
+
+    .article-body .callout strong { color: var(--forest); }
+
+    .article-body img {
+      width: 100%; border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(27,94,63,0.14);
+      margin: 28px 0; display: block;
+    }
+
+    .article-body .img-caption {
+      font-size: 13px; color: #888; text-align: center;
+      margin-top: -16px; margin-bottom: 28px;
+    }
+
+    /* SHARE */
+    .post-share {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      padding: 28px 0; border-top: 1px solid rgba(168,213,186,0.5); margin-top: 48px;
+    }
+    .post-share span { font-size: 14px; font-weight: 700; color: var(--forest); }
+
+    /* SIDEBAR */
+    .article-sidebar { display: flex; flex-direction: column; gap: 24px; }
+
+    .sidebar-widget {
+      background: var(--forest); border-radius: 16px; padding: 28px 24px;
+      position: sticky; top: 96px;
+    }
+    .sidebar-widget img { width: 100%; border-radius: 8px; margin-bottom: 16px; }
+    .sidebar-widget h3 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 22px; font-weight: 800; color: #fff;
+      text-transform: uppercase; margin: 0 0 8px;
+    }
+    .sidebar-widget h3 span { color: var(--sage); }
+    .sidebar-widget p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.72); margin: 0 0 18px; }
+    .btn-sidebar {
+      display: block; background: var(--terracotta); color: #fff; font-size: 14px; font-weight: 700;
+      padding: 13px 18px; border-radius: 8px; text-decoration: none; text-align: center;
+      box-shadow: 0 4px 14px rgba(232,132,75,0.45); transition: background 0.2s, transform 0.15s;
+    }
+    .btn-sidebar:hover { background: #C96A30; transform: translateY(-1px); }
+
+    .sidebar-toc {
+      background: #f9fdfb; border-radius: 14px; padding: 24px;
+      border: 1px solid rgba(168,213,186,0.5);
+    }
+    .sidebar-toc h4 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--forest); margin: 0 0 14px;
+    }
+    .sidebar-toc ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .sidebar-toc a { font-size: 14px; color: #555; text-decoration: none; transition: color 0.2s; }
+    .sidebar-toc a:hover { color: var(--forest); font-weight: 600; }
+
+    /* RELATED POSTS */
+    .related-section { background: var(--cream); padding: 72px 24px; }
+    .related-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; display: block;
+    }
+    .related-title {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 40px; font-weight: 800; color: var(--forest);
+      text-transform: uppercase; margin: 0 0 40px;
+    }
+    .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .related-card {
+      background: #fff; border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(27,94,63,0.06); text-decoration: none; color: inherit;
+      transition: transform 0.25s, box-shadow 0.25s; display: block;
+    }
+    .related-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(27,94,63,0.1); }
+    .related-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .related-card-body { padding: 20px; }
+    .related-card-body .post-tag { display: block; margin-bottom: 6px; }
+    .related-card-body h3 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 20px; font-weight: 700; color: var(--forest);
+      text-transform: uppercase; margin: 0; line-height: 1.2;
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--forest); padding: 72px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(168,213,186,0.18) 0%, transparent 60%);
+    }
+    .cta-band-inner { position: relative; z-index: 1; max-width: 560px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(34px, 4.5vw, 52px); font-weight: 800; color: #fff;
+      text-transform: uppercase; line-height: 1.05; margin: 0 0 14px;
+    }
+    .cta-band h2 span { color: var(--sage); }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.72); margin: 0 0 32px; line-height: 1.65; }
+    .btn-cta {
+      background: var(--terracotta); color: #fff; font-size: 17px; font-weight: 700;
+      padding: 16px 40px; border-radius: 8px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(232,132,75,0.5); transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-cta:hover { background: #C96A30; transform: translateY(-2px); }
+
+    footer { background: #0e3a27; padding: 48px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); margin: 0; }
+    .footer-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .sidebar-widget { position: static; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-amazon-nav">Shop on Amazon</a>
+  </div>
+</nav>
+
+<!-- POST HERO -->
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <div class="breadcrumb">
+      <a href="blog.html">Blog</a> <span>/</span> <span>Plant Care</span>
+    </div>
+    <span class="post-tag">Plant Care · 6 min read</span>
+    <h1>What Are Ollas? The Ancient Watering Secret Your Plants Need</h1>
+    <p class="excerpt">Ollas have been used for over 4,000 years to irrigate crops across the Middle East, Africa, and Asia. Here's why this ancient clay technology is the smartest upgrade your garden has never heard of, and how Azen Garden brings it home.</p>
+    <div class="post-meta">
+      <span>By Azen Garden Team</span>
+      <span>·</span>
+      <span>April 2024</span>
+    </div>
+  </div>
+</div>
+
+<img src="https://placehold.co/1200x480/A8D5BA/1B5E3F?text=Azen+Garden+Ollas" alt="Azen Garden self-watering ollas in a planter" class="post-featured-img" />
+
+<!-- ARTICLE -->
+<div class="article-layout">
+  <article class="article-body">
+
+    <p>If you've ever come home to a wilted plant, or worse, one rotting from too much attention, you're not alone. Overwatering and underwatering account for the vast majority of houseplant deaths. But what if the plant could simply tell you when it was thirsty, and drink exactly as much as it needed?</p>
+
+    <p>That's exactly what ollas do. And they've been doing it since ancient Persia.</p>
+
+    <h2>What Is an Olla?</h2>
+
+    <p>An olla (pronounced "oy-ya," from the Spanish word for "pot") is an unglazed terracotta clay vessel that is buried in soil near plant roots. You fill it with water through an opening at the top, and the porous clay walls allow water to slowly seep out into the surrounding soil over days, not all at once.</p>
+
+    <p>The mechanism is elegant: water moves through the clay by osmotic pressure. When soil is dry, it draws moisture through the porous walls. When soil is already saturated, it stops drawing. The plant's root system, in essence, controls its own irrigation.</p>
+
+    <div class="callout">
+      <strong>The key insight:</strong> Ollas don't water on a schedule. They water on demand. The drier the soil, the more water moves through the clay. The wetter the soil, the less. It's a completely passive, self-regulating system.
+    </div>
+
+    <h2>4,000 Years of Proven Performance</h2>
+
+    <p>Archaeological evidence of olla irrigation dates back to ancient Iran, where farmers buried large clay vessels next to their crops to water them through dry desert summers. The practice spread across the Middle East, North Africa, and into Central Asia, where water scarcity made every drop count.</p>
+
+    <p>In China and parts of South America, similar techniques evolved independently, suggesting that different cultures arrived at the same solution through observation of how clay interacts with soil moisture. This kind of convergent invention is a strong signal that it works.</p>
+
+    <img src="brand_assets/how_does_this__work.jpg" alt="How Azen Garden ollas work, cross-section diagram showing root hydration" />
+    <p class="img-caption">Azen Garden ollas sit inside your planter's soil, releasing water directly to the root zone as the plant needs it.</p>
+
+    <h2>Why Ollas Beat Traditional Watering</h2>
+
+    <p>Here's the problem with pouring water on top of soil: most of it doesn't reach the roots. Surface watering leads to:</p>
+
+    <ul>
+      <li><strong>Evaporation:</strong> in warm, sunny conditions, water evaporates before reaching roots</li>
+      <li><strong>Surface runoff:</strong> water flows along the soil surface and out drainage holes without penetrating deep</li>
+      <li><strong>Uneven distribution:</strong> the top layer gets saturated while deeper root zones stay dry</li>
+      <li><strong>Wet leaf surfaces:</strong> water on foliage encourages fungal disease</li>
+      <li><strong>Fungus gnats:</strong> moist soil surfaces are breeding grounds for these common houseplant pests</li>
+    </ul>
+
+    <p>Olla watering eliminates all of these problems simultaneously. Water is delivered below the surface, directly to roots, at exactly the rate the plant can absorb it. The surface stays dry, gnats can't breed, and you're not wasting water on evaporation.</p>
+
+    <h2>How Azen Garden Brings Ollas to Modern Plants</h2>
+
+    <p>Traditional ollas were large vessels designed for field crops, not exactly practical for your kitchen window. Azen Garden reimagined the concept for potted plants and indoor gardens.</p>
+
+    <p>Each Azen Garden globe is 6.3 inches tall, 3 inches wide, and holds 350ml of water. The terracotta body provides the same osmotic properties as ancient ollas, while the cork top makes refilling clean and easy. A set of four gives you enough for a full container garden, a windowsill herb collection, or your most demanding houseplants.</p>
+
+    <img src="brand_assets/productimage.jpg" alt="Azen Garden set of 4 terracotta ollas with packaging" />
+    <p class="img-caption">Each Azen Garden set includes 4 terracotta globes, cork stoppers, and a wooden display stand.</p>
+
+    <h2>Which Plants Benefit Most?</h2>
+
+    <p>Most plants that need consistent moisture will thrive with olla watering. The best candidates include:</p>
+
+    <ul>
+      <li><strong>Vegetables:</strong> tomatoes, peppers, cucumbers, herbs, leafy greens</li>
+      <li><strong>Tropical houseplants:</strong> pothos, monstera, peace lily, philodendron</li>
+      <li><strong>Flowering plants:</strong> lavender, geraniums, impatiens, begonias</li>
+      <li><strong>Fruit:</strong> strawberries, dwarf citrus, blueberries in containers</li>
+    </ul>
+
+    <p>The one exception: succulents and cacti prefer boom-and-bust watering cycles, with completely dry periods followed by a thorough soak. Since ollas maintain consistent moisture, they're not the right tool for desert plants.</p>
+
+    <div class="callout">
+      <strong>Pro tip:</strong> Soak your new Azen Garden globes in clean water for 30 minutes before first use. This saturates the clay pores and ensures the osmotic mechanism starts working immediately when placed in soil.
+    </div>
+
+    <h2>The Bottom Line</h2>
+
+    <p>If you care about your plants but find yourself either forgetting to water or reaching for the watering can too often, ollas are the most reliable solution available. They're passive, natural, chemical-free, and they've been proven effective for over four millennia.</p>
+
+    <p>Azen Garden makes it easy to bring this ancient technique to your modern home garden. No electricity, no apps, no complicated setup. Fill, insert, and let your plants do the rest.</p>
+
+    <div class="post-share">
+      <span>Helpful?</span>
+      <a href="blog.html" style="background:var(--sage-light, #D6EDE0); color:var(--forest); font-size:13px; font-weight:700; padding:8px 18px; border-radius:100px; text-decoration:none;">← Back to Blog</a>
+    </div>
+
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+    <div class="sidebar-toc">
+      <h4>In This Article</h4>
+      <ul>
+        <li><a href="#">What Is an Olla?</a></li>
+        <li><a href="#">4,000 Years of History</a></li>
+        <li><a href="#">Why Ollas Beat Traditional Watering</a></li>
+        <li><a href="#">Azen Garden Ollas</a></li>
+        <li><a href="#">Which Plants Benefit?</a></li>
+        <li><a href="#">The Bottom Line</a></li>
+      </ul>
+    </div>
+
+    <div class="sidebar-widget">
+      <img src="brand_assets/productimage.jpg" alt="Azen Garden plant globes" />
+      <h3>Try <span>Azen Garden</span></h3>
+      <p>4 terracotta self-watering globes with cork stoppers. Available on Amazon with fast shipping.</p>
+      <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-sidebar">Shop on Amazon →</a>
+    </div>
+  </aside>
+</div>
+
+<!-- RELATED POSTS -->
+<section class="related-section">
+  <div class="related-inner">
+    <span class="section-label">Keep Reading</span>
+    <h2 class="related-title">Related Articles</h2>
+    <div class="related-grid">
+      <a href="blog.html" class="related-card">
+        <img src="https://placehold.co/600x300/D6EDE0/1B5E3F?text=Indoor+Plants" alt="Best indoor plants for ollas" />
+        <div class="related-card-body">
+          <span class="post-tag">Indoor Gardening</span>
+          <h3>Best Indoor Plants for Self-Watering Globes</h3>
+        </div>
+      </a>
+      <a href="blog.html" class="related-card">
+        <img src="https://placehold.co/600x300/F5EFE6/C89E77?text=Save+Water" alt="Save water with ollas" />
+        <div class="related-card-body">
+          <span class="post-tag">Sustainability</span>
+          <h3>How to Cut Your Garden's Water Use by 70%</h3>
+        </div>
+      </a>
+      <a href="blog.html" class="related-card">
+        <img src="https://placehold.co/600x300/A8D5BA/0e3a27?text=Fungus+Gnats" alt="Get rid of fungus gnats" />
+        <div class="related-card-body">
+          <span class="post-tag">Plant Care</span>
+          <h3>Get Rid of Fungus Gnats for Good</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Ready to Try <span>Ollas?</span></h2>
+    <p>Get your Azen Garden set on Amazon today. 4 terracotta globes, fast shipping, easy returns.</p>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-cta">Shop on Amazon →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener">Shop on Amazon</a>
+      </div>
+      <p>&copy; 2024 Azen Garden</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

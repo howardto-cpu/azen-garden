@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ: Azen Garden Self-Watering Plant Globes</title>
+  <meta name="description" content="Frequently asked questions about Azen Garden ollas: how to use them, what plants they work with, how often to refill, and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --forest: #1B5E3F;
+      --sage: #A8D5BA;
+      --terracotta: #E8844B;
+      --cork: #C89E77;
+      --cream: #F5EFE6;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #1a1a1a; background: #fff; margin: 0; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(168,213,186,0.4);
+      box-shadow: 0 2px 16px rgba(27,94,63,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--terracotta); }
+    .btn-amazon-nav {
+      background: var(--terracotta); color: #fff; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em; padding: 10px 22px; border-radius: 6px; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(232,132,75,0.35); transition: background 0.2s, transform 0.15s;
+    }
+    .btn-amazon-nav:hover { background: #C96A30; transform: translateY(-1px); }
+
+    .page-hero {
+      background: var(--forest); padding: 140px 24px 80px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(168,213,186,0.2) 0%, transparent 65%);
+    }
+    .page-hero .label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(44px, 7vw, 80px); font-weight: 800; color: #fff;
+      line-height: 1.0; letter-spacing: -0.02em; text-transform: uppercase;
+      margin: 0 0 20px; position: relative;
+    }
+    .page-hero h1 span { color: var(--sage); }
+    .page-hero p {
+      font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.78);
+      max-width: 520px; margin: 0 auto; position: relative;
+    }
+
+    /* FAQ */
+    .faq-section { padding: 80px 24px; }
+    .faq-inner { max-width: 820px; margin: 0 auto; }
+
+    .faq-category { margin-bottom: 56px; }
+    .faq-category-title {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--terracotta);
+      margin: 0 0 24px; padding-bottom: 12px;
+      border-bottom: 2px solid var(--sage);
+    }
+
+    /* Accordion - CSS only */
+    .faq-item {
+      border-bottom: 1px solid rgba(168,213,186,0.4);
+    }
+
+    .faq-item input[type="checkbox"] {
+      position: absolute; opacity: 0; width: 0; height: 0;
+    }
+
+    .faq-label {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; cursor: pointer; gap: 16px;
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 20px; font-weight: 700; color: var(--forest);
+      text-transform: uppercase; letter-spacing: 0.02em;
+      user-select: none;
+      transition: color 0.2s;
+    }
+
+    .faq-label:hover { color: var(--terracotta); }
+
+    .faq-icon {
+      flex-shrink: 0; width: 28px; height: 28px;
+      background: var(--sage); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s, transform 0.3s;
+    }
+
+    .faq-icon svg { width: 14px; height: 14px; }
+
+    .faq-answer {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.35s ease, padding 0.3s;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 20px;
+      font-size: 15px; line-height: 1.75; color: #444;
+    }
+
+    .faq-answer-inner a { color: var(--forest); font-weight: 600; }
+    .faq-answer-inner a:hover { color: var(--terracotta); }
+
+    .faq-item input:checked ~ .faq-label .faq-icon {
+      background: var(--forest); transform: rotate(45deg);
+    }
+
+    .faq-item input:checked ~ .faq-label .faq-icon svg path { stroke: #fff; }
+
+    .faq-item input:checked ~ .faq-answer {
+      max-height: 400px;
+    }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--forest); padding: 80px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(168,213,186,0.18) 0%, transparent 60%);
+    }
+    .cta-band-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(36px, 5vw, 58px); font-weight: 800; color: #fff;
+      text-transform: uppercase; line-height: 1.05; margin: 0 0 16px;
+    }
+    .cta-band h2 span { color: var(--sage); }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.72); margin: 0 0 36px; line-height: 1.65; }
+    .btn-cta {
+      background: var(--terracotta); color: #fff; font-size: 17px; font-weight: 700;
+      padding: 18px 44px; border-radius: 8px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(232,132,75,0.5); transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-cta:hover { background: #C96A30; transform: translateY(-2px); }
+
+    footer { background: #0e3a27; padding: 48px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); margin: 0; }
+    .footer-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 768px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html" class="active">FAQ</a></li>
+    </ul>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-amazon-nav">Shop on Amazon</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <span class="label">Help &amp; Support</span>
+  <h1>Frequently Asked <span>Questions</span></h1>
+  <p>Everything you need to know about Azen Garden ollas, from first use to long-term care.</p>
+</div>
+
+<section class="faq-section">
+  <div class="faq-inner">
+
+    <!-- CATEGORY: BASICS -->
+    <div class="faq-category">
+      <div class="faq-category-title">The Basics</div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq1" />
+        <label class="faq-label" for="faq1">
+          What exactly is an olla?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          An olla (pronounced "oy-ya") is an unglazed terracotta clay vessel used for sub-surface irrigation. Originating over 4,000 years ago, ollas are buried in soil next to plant roots. Water inside the vessel slowly seeps through the porous clay walls directly into the root zone, delivering moisture on demand. Azen Garden ollas are a modern, pot-friendly version of this ancient technology.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq2" />
+        <label class="faq-label" for="faq2">
+          How is this different from a regular watering globe?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Most plastic or glass watering globes rely purely on gravity and a small neck opening to drip water. They can flood soil when it's already wet or empty too fast. Azen Garden ollas use osmotic pressure through porous terracotta. Water only moves when the surrounding soil is dry enough to pull it through. This means your plant literally controls how much water it receives, preventing both overwatering and underwatering.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq3" />
+        <label class="faq-label" for="faq3">
+          What size planters do Azen Garden ollas work with?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Azen Garden ollas are ideal for planters 8 inches (20cm) or larger. The globe measures 6.3" tall × 3.0" wide, so it needs enough soil depth to sit properly with roots surrounding it. Smaller pots may not give the olla enough soil contact to work effectively. For very large raised beds or garden patches, you may want to use multiple ollas spaced throughout the bed.
+        </div></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: USING YOUR OLLAS -->
+    <div class="faq-category">
+      <div class="faq-category-title">Using Your Ollas</div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq4" />
+        <label class="faq-label" for="faq4">
+          How do I set up my Azen Garden globe for the first time?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          <strong>Step 1:</strong> Soak the globe in clean water for 30 minutes before first use. This primes the clay pores and improves initial water flow.<br/><br/>
+          <strong>Step 2:</strong> Push the globe gently into the soil of your planter, near the base of your plant where roots concentrate. Bury it until only the neck sticks above soil level.<br/><br/>
+          <strong>Step 3:</strong> Fill through the cork top using a small funnel or squeeze bottle. Replace the cork.<br/><br/>
+          <strong>Step 4:</strong> Check and refill every few days at first until you establish a rhythm for your specific plant and environment.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq5" />
+        <label class="faq-label" for="faq5">
+          How often do I need to refill the globe?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          It varies by plant type, pot size, soil mix, and climate. Most users find they refill every 3–7 days indoors and every 1–3 days in hot, sunny outdoor conditions. In summer heat or for thirsty plants like tomatoes, you may refill more frequently. In winter or for drought-tolerant succulents, the globe may last 1–2 weeks between fills. Start by checking every 2 days and adjust from there.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq6" />
+        <label class="faq-label" for="faq6">
+          Can I use it with indoor and outdoor plants?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Yes, Azen Garden ollas work beautifully with both. Indoors, they're excellent for houseplants like pothos, monstera, ferns, and herbs. Outdoors, they're perfect for raised planters, container vegetables, and flowering plants. The key is that the planter should be at least 8" across to give the globe enough soil contact.
+        </div></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: PLANTS & PERFORMANCE -->
+    <div class="faq-category">
+      <div class="faq-category-title">Plants &amp; Performance</div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq7" />
+        <label class="faq-label" for="faq7">
+          Which plants benefit most from olla watering?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Most non-succulent plants thrive with olla watering. Top performers include:
+          <ul style="margin:12px 0 0 16px; display:flex; flex-direction:column; gap:4px;">
+            <li><strong>Vegetables:</strong> tomatoes, peppers, cucumbers, squash, herbs</li>
+            <li><strong>Houseplants:</strong> pothos, monstera, peace lily, fiddle-leaf fig, ferns</li>
+            <li><strong>Flowers:</strong> geraniums, lavender, impatiens, hydrangeas</li>
+            <li><strong>Fruit:</strong> strawberries, dwarf citrus, blueberries (in containers)</li>
+          </ul>
+          <p style="margin-top:12px;">Succulents and cacti are not ideal since they prefer periods of complete dryness, which ollas prevent.</p>
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq8" />
+        <label class="faq-label" for="faq8">
+          Will it really reduce fungus gnats and weeds?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Yes, significantly. Fungus gnats lay eggs in wet soil surface. Because olla watering keeps the top layer of soil dry while the root zone stays moist, the surface conditions gnats need to breed simply don't exist. Most olla users report a dramatic drop in fungus gnat populations within 1–2 watering cycles. Similarly, weed seeds on the surface need surface moisture to germinate, so keeping that layer dry suppresses weed growth naturally.
+        </div></div>
+      </div>
+    </div>
+
+    <!-- CATEGORY: CARE & CLEANING -->
+    <div class="faq-category">
+      <div class="faq-category-title">Care &amp; Cleaning</div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq9" />
+        <label class="faq-label" for="faq9">
+          How do I clean my Azen Garden globe?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          After removing from soil, rinse the outside with warm water to remove loose soil. If mineral deposits (white crust) build up over time, soak in a solution of 1 part white vinegar to 4 parts water for 2–3 hours, then scrub gently with a soft brush. Rinse thoroughly and allow to air dry completely before storing. Do not use soap or chemical cleaners as they can clog the pores and affect water flow.
+        </div></div>
+      </div>
+
+      <div class="faq-item">
+        <input type="checkbox" id="faq10" />
+        <label class="faq-label" for="faq10">
+          Where can I buy Azen Garden plant globes?
+          <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="#1B5E3F" stroke-width="2" stroke-linecap="round"/></svg></span>
+        </label>
+        <div class="faq-answer"><div class="faq-answer-inner">
+          Azen Garden ollas are available on <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener">Amazon</a> with Prime shipping, easy returns, and Amazon's standard buyer protection. Each set includes 4 ollas with cork stoppers and a wooden display stand.
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Still Have <span>Questions?</span></h2>
+    <p>Read reviews from real customers on Amazon, or order your set today and experience the difference firsthand.</p>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-cta">Shop on Amazon →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener">Shop on Amazon</a>
+      </div>
+      <p>&copy; 2024 Azen Garden</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

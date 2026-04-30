@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Azen Garden: Our Story &amp; Mission</title>
+  <meta name="description" content="Azen Garden was founded on a simple belief: plants deserve better watering. Learn the story behind our self-watering olla plant globes and our mission to make gardening effortless." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --forest: #1B5E3F;
+      --sage: #A8D5BA;
+      --terracotta: #E8844B;
+      --cork: #C89E77;
+      --cream: #F5EFE6;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #1a1a1a; background: #fff; margin: 0; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(168,213,186,0.4);
+      box-shadow: 0 2px 16px rgba(27,94,63,0.08);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      height: 72px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo img { height: 44px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { font-size: 15px; font-weight: 600; color: var(--forest); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a.active { color: var(--terracotta); }
+    .btn-amazon-nav {
+      background: var(--terracotta); color: #fff; font-size: 14px; font-weight: 700;
+      letter-spacing: 0.04em; padding: 10px 22px; border-radius: 6px; text-decoration: none;
+      box-shadow: 0 2px 8px rgba(232,132,75,0.35); transition: background 0.2s, transform 0.15s;
+    }
+    .btn-amazon-nav:hover { background: #C96A30; transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--forest);
+      padding: 140px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 100%, rgba(168,213,186,0.2) 0%, transparent 65%);
+    }
+    .page-hero .label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(44px, 7vw, 80px); font-weight: 800; color: #fff;
+      line-height: 1.0; letter-spacing: -0.02em; text-transform: uppercase;
+      margin: 0 0 20px; position: relative;
+    }
+    .page-hero h1 span { color: var(--sage); }
+    .page-hero p {
+      font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.78);
+      max-width: 560px; margin: 0 auto; position: relative;
+    }
+
+    /* SECTIONS */
+    .section { padding: 80px 24px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(34px, 4.5vw, 56px); font-weight: 800; color: var(--forest);
+      line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; margin: 0 0 24px;
+    }
+    .body-text { font-size: 16px; line-height: 1.75; color: #444; max-width: 640px; }
+    .body-text + .body-text { margin-top: 16px; }
+
+    /* TWO-COL */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+    .two-col img { width: 100%; border-radius: 16px; box-shadow: 0 16px 60px rgba(27,94,63,0.18); }
+
+    /* MISSION CARDS */
+    .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+    .mission-card {
+      background: var(--cream); border-radius: 16px; padding: 36px 28px;
+      border-left: 4px solid var(--sage);
+    }
+    .mission-card h3 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: 22px; font-weight: 700; color: var(--forest);
+      text-transform: uppercase; margin: 0 0 10px; letter-spacing: 0.02em;
+    }
+    .mission-card p { font-size: 15px; line-height: 1.7; color: #555; margin: 0; }
+
+    /* PRODUCT SECTION */
+    .product-section { background: var(--cream); }
+
+    /* CTA BAND */
+    .cta-band {
+      background: var(--forest); padding: 80px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(168,213,186,0.18) 0%, transparent 60%);
+    }
+    .cta-band-inner { position: relative; z-index: 1; max-width: 600px; margin: 0 auto; }
+    .cta-band h2 {
+      font-family: 'Barlow Condensed', Arial, sans-serif;
+      font-size: clamp(36px, 5vw, 58px); font-weight: 800; color: #fff;
+      text-transform: uppercase; line-height: 1.05; margin: 0 0 16px;
+    }
+    .cta-band h2 span { color: var(--sage); }
+    .cta-band p { font-size: 16px; color: rgba(255,255,255,0.72); margin: 0 0 36px; line-height: 1.65; }
+    .btn-cta {
+      background: var(--terracotta); color: #fff; font-size: 17px; font-weight: 700;
+      padding: 18px 44px; border-radius: 8px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(232,132,75,0.5); transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-cta:hover { background: #C96A30; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer { background: #0e3a27; padding: 48px 24px 28px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); margin: 0; }
+    .footer-logo img { height: 36px; filter: brightness(0) invert(1); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 768px) {
+      .two-col { grid-template-columns: 1fr; gap: 40px; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-amazon-nav">Shop on Amazon</a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="label">Our Story</span>
+  <h1>About <span>Azen Garden</span></h1>
+  <p>We believe every plant deserves the right amount of water, delivered naturally, precisely, and effortlessly.</p>
+</div>
+
+<!-- ORIGIN STORY -->
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <span class="section-label">Where It Started</span>
+        <h2 class="section-title">Ancient Wisdom,<br/>Modern Planters</h2>
+        <p class="body-text">Ollas (unglazed clay pots buried in soil) have been used for over 4,000 years across the Middle East, Africa, and South Asia to irrigate crops. The principle is simple and elegant: water seeps slowly through porous clay walls, delivering moisture directly to where roots need it most.</p>
+        <p class="body-text" style="margin-top:16px;">At Azen Garden, we took this ancient technology and reimagined it for the modern home gardener. Our self-watering plant globes bring the same precision irrigation to potted plants and indoor gardens, without any complicated systems or electricity.</p>
+      </div>
+      <div>
+        <img src="brand_assets/productimage.jpg" alt="Azen Garden self-watering plant globes, set of 4" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="section" style="background: #f9fdfb; padding-top: 0;">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom:8px;">
+      <span class="section-label">Our Mission</span>
+      <h2 class="section-title" style="margin-bottom:8px;">What We Stand For</h2>
+      <p style="font-size:16px; color:#555; line-height:1.65; max-width:560px; margin:0 auto;">Three principles guide everything we make at Azen Garden.</p>
+    </div>
+    <div class="mission-grid">
+      <div class="mission-card">
+        <h3>Plants First</h3>
+        <p>Every design decision starts with what's best for the plant. Slow, consistent sub-surface watering produces stronger roots, healthier leaves, and longer-living plants.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Less Water Waste</h3>
+        <p>Traditional surface watering evaporates before roots can use it. Our ollas deliver moisture directly underground, using up to 70% less water for the same result.</p>
+      </div>
+      <div class="mission-card">
+        <h3>Simple by Design</h3>
+        <p>No batteries, no apps, no complicated timers. Fill, insert, and let the plant do the rest. Gardening should feel natural, not like troubleshooting technology.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT STORY -->
+<section class="section product-section">
+  <div class="section-inner">
+    <div class="two-col">
+      <div>
+        <img src="brand_assets/how_does_this__work.jpg" alt="How Azen Garden ollas deliver water to roots" />
+      </div>
+      <div>
+        <span class="section-label">The Product</span>
+        <h2 class="section-title">Terracotta That Thinks</h2>
+        <p class="body-text">Each Azen Garden globe is made from natural terracotta clay, the same mineral-rich material that's been used for irrigation for millennia. The porous walls create thousands of micro-channels through which water slowly permeates into the surrounding soil.</p>
+        <p class="body-text" style="margin-top:16px;">When soil is dry and roots are thirsty, they create a moisture gradient that draws water through the clay. When soil is already moist, water stays put. No timers needed. The plant's own root system controls the flow.</p>
+        <p class="body-text" style="margin-top:16px;">Each set includes four 350ml globes with cork stoppers and a wooden display stand, designed to look as beautiful on your windowsill as they are functional in your pots.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <h2>Try Azen Garden <span>Risk-Free</span></h2>
+    <p>Available now on Amazon with fast shipping, easy returns, and thousands of happy plant parents already making the switch.</p>
+    <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener" class="btn-cta">Shop on Amazon →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <a href="/" class="footer-logo"><img src="brand_assets/logo2.png" alt="Azen Garden" /></a>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Blog</a>
+        <a href="faq.html">FAQ</a>
+        <a href="https://www.amazon.com/Azen-Garden-Plant-Watering-Globes/dp/B0CD4J6FX1" target="_blank" rel="noopener">Shop on Amazon</a>
+      </div>
+      <p>&copy; 2024 Azen Garden</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
