@@ -913,23 +913,10 @@
       </p>
     </div>
 
-    <!-- All 3 videos in one row: horizontal takes 2fr, verticals take 1fr each -->
+    <!-- Verticals on top, horizontal spanning full width below -->
     <div class="ugc-row">
 
       <div class="ugc-card fade-up">
-        <div class="ugc-video-wrap">
-          <video muted playsinline preload="metadata" class="ugc-video">
-            <source src="brand_assets/UGC/content-984709.mp4" type="video/mp4" />
-          </video>
-          <button class="ugc-play-btn" aria-label="Play video">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="ugc-overlay"></div>
-        </div>
-        <div class="ugc-card-label"><span class="ugc-dot"></span>Tried &amp; Loved at Home</div>
-      </div>
-
-      <div class="ugc-card fade-up fade-up-delay-1">
         <div class="ugc-video-wrap">
           <video muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-387754.mp4" type="video/mp4" />
@@ -942,7 +929,7 @@
         <div class="ugc-card-label"><span class="ugc-dot"></span>A Plant Parent's Honest Take</div>
       </div>
 
-      <div class="ugc-card fade-up fade-up-delay-2">
+      <div class="ugc-card fade-up fade-up-delay-1">
         <div class="ugc-video-wrap">
           <video muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-389450.mp4" type="video/mp4" />
@@ -955,20 +942,33 @@
         <div class="ugc-card-label"><span class="ugc-dot"></span>Real Garden, Real Results</div>
       </div>
 
+      <div class="ugc-card ugc-card-horizontal fade-up fade-up-delay-2">
+        <div class="ugc-video-wrap">
+          <video muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-984709.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Tried &amp; Loved at Home</div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <style>
-  /* One row: horizontal gets 2fr, each vertical gets 1fr, all same height */
+  /* Two verticals on top, horizontal spanning full width below */
   .ugc-row {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
-    align-items: start;
   }
 
   .ugc-card { display: flex; flex-direction: column; gap: 12px; }
+  .ugc-card-horizontal { grid-column: 1 / -1; } /* span both columns */
 
   .ugc-video-wrap {
     position: relative;
@@ -978,9 +978,8 @@
     border: 1px solid rgba(168,213,186,0.3);
   }
 
-  /* Horizontal card keeps 16:9, vertical cards keep 9:16 */
-  .ugc-row .ugc-card:first-child .ugc-video-wrap { aspect-ratio: 16 / 9; }
-  .ugc-row .ugc-card:not(:first-child) .ugc-video-wrap { aspect-ratio: 9 / 16; }
+  .ugc-card-horizontal .ugc-video-wrap { aspect-ratio: 16 / 9; }
+  .ugc-row .ugc-card:not(.ugc-card-horizontal) .ugc-video-wrap { aspect-ratio: 9 / 16; }
 
   .ugc-video-wrap::before {
     content: ''; position: absolute;
@@ -1035,10 +1034,9 @@
     background: var(--terracotta); flex-shrink: 0;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 600px) {
     .ugc-row { grid-template-columns: 1fr; }
-    .ugc-row .ugc-card:first-child .ugc-video-wrap  { aspect-ratio: 16 / 9; }
-    .ugc-row .ugc-card:not(:first-child) .ugc-video-wrap { aspect-ratio: 9 / 16; }
+    .ugc-card-horizontal { grid-column: 1; }
   }
 </style>
 
