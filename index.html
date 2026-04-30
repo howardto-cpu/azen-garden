@@ -913,25 +913,11 @@
       </p>
     </div>
 
-    <!-- Horizontal videos: 2 columns, 16:9 -->
-    <div class="ugc-grid ugc-grid-horizontal">
-
+    <!-- Horizontal video: full width, 16:9 -->
+    <div style="margin-bottom:20px;">
       <div class="ugc-card fade-up">
         <div class="ugc-video-wrap ugc-horizontal">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
-            <source src="brand_assets/UGC/content-886739.mp4" type="video/mp4" />
-          </video>
-          <button class="ugc-play-btn" aria-label="Play video">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="ugc-overlay"></div>
-        </div>
-        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
-      </div>
-
-      <div class="ugc-card fade-up fade-up-delay-1">
-        <div class="ugc-video-wrap ugc-horizontal">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
+          <video muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-984709.mp4" type="video/mp4" />
           </video>
           <button class="ugc-play-btn" aria-label="Play video">
@@ -939,17 +925,16 @@
           </button>
           <div class="ugc-overlay"></div>
         </div>
-        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Tried &amp; Loved at Home</div>
       </div>
-
     </div>
 
-    <!-- Vertical videos: 4 columns centred, 9:16 -->
+    <!-- Vertical videos: 2 columns centred, 9:16 -->
     <div class="ugc-grid ugc-grid-vertical">
 
       <div class="ugc-card fade-up fade-up-delay-1">
         <div class="ugc-video-wrap ugc-vertical">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
+          <video muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-387754.mp4" type="video/mp4" />
           </video>
           <button class="ugc-play-btn" aria-label="Play video">
@@ -957,12 +942,12 @@
           </button>
           <div class="ugc-overlay"></div>
         </div>
-        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>A Plant Parent's Honest Take</div>
       </div>
 
       <div class="ugc-card fade-up fade-up-delay-2">
         <div class="ugc-video-wrap ugc-vertical">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
+          <video muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-389450.mp4" type="video/mp4" />
           </video>
           <button class="ugc-play-btn" aria-label="Play video">
@@ -970,7 +955,7 @@
           </button>
           <div class="ugc-overlay"></div>
         </div>
-        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Real Garden, Real Results</div>
       </div>
 
     </div>
@@ -1057,12 +1042,12 @@
   // UGC video play/pause toggle
   document.querySelectorAll('.ugc-video-wrap').forEach(wrap => {
     const video = wrap.querySelector('.ugc-video');
-    const btn   = wrap.querySelector('.ugc-play-btn');
 
     wrap.addEventListener('click', () => {
       if (video.paused) {
-        // Pause all other UGC videos first
-        document.querySelectorAll('.ugc-video').forEach(v => { if (v !== video) { v.pause(); v.closest('.ugc-video-wrap').classList.remove('playing'); } });
+        document.querySelectorAll('.ugc-video').forEach(v => {
+          if (v !== video) { v.pause(); v.closest('.ugc-video-wrap').classList.remove('playing'); }
+        });
         video.muted = false;
         video.play();
         wrap.classList.add('playing');
@@ -1070,6 +1055,12 @@
         video.pause();
         wrap.classList.remove('playing');
       }
+    });
+
+    // Show play button again when video ends
+    video.addEventListener('ended', () => {
+      wrap.classList.remove('playing');
+      video.currentTime = 0;
     });
   });
 </script>
