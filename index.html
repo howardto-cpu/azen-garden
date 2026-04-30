@@ -898,6 +898,194 @@
   }
 </style>
 
+<!-- ─── UGC VIDEOS ─── -->
+<section id="ugc" class="section-wrap grain" style="background:var(--sage-pale);">
+  <div class="section-inner">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div class="section-eyebrow" style="color:var(--forest); justify-content:center;">
+        <span class="eyebrow-line" style="background:var(--forest);"></span>
+        Real People, Real Results
+        <span class="eyebrow-line" style="background:var(--forest);"></span>
+      </div>
+      <h2 class="section-title fade-up" style="font-size:clamp(34px,4.5vw,58px);">See It in the Wild</h2>
+      <p class="fade-up fade-up-delay-1" style="font-size:16px; color:#5a6a5a; margin-top:12px; max-width:480px; margin-left:auto; margin-right:auto;">
+        Plant lovers sharing their Azen Garden experience — unscripted and unfiltered.
+      </p>
+    </div>
+
+    <div class="ugc-grid">
+
+      <div class="ugc-card fade-up">
+        <div class="ugc-video-wrap">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-886739.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label">
+          <span class="ugc-dot"></span>
+          Customer Review
+        </div>
+      </div>
+
+      <div class="ugc-card fade-up fade-up-delay-1">
+        <div class="ugc-video-wrap">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-387754.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label">
+          <span class="ugc-dot"></span>
+          Customer Review
+        </div>
+      </div>
+
+      <div class="ugc-card fade-up fade-up-delay-2">
+        <div class="ugc-video-wrap">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-389450.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label">
+          <span class="ugc-dot"></span>
+          Customer Review
+        </div>
+      </div>
+
+      <div class="ugc-card fade-up fade-up-delay-3">
+        <div class="ugc-video-wrap">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-984709.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label">
+          <span class="ugc-dot"></span>
+          Customer Review
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .ugc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .ugc-card {
+    display: flex; flex-direction: column; gap: 12px;
+  }
+
+  .ugc-video-wrap {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 8px 32px rgba(27,94,63,0.15), 0 2px 8px rgba(27,94,63,0.08);
+    border: 1px solid rgba(168,213,186,0.3);
+  }
+
+  .ugc-video-wrap::before {
+    content: '';
+    position: absolute;
+    top: -12px; right: -12px; bottom: 12px; left: 12px;
+    background: var(--sage-light);
+    border-radius: 18px;
+    z-index: 0;
+  }
+
+  .ugc-video {
+    position: relative; z-index: 1;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 18px;
+    transition: transform 0.4s ease;
+  }
+
+  .ugc-video-wrap:hover .ugc-video { transform: scale(1.02); }
+
+  .ugc-overlay {
+    position: absolute; inset: 0; z-index: 2;
+    background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 40%);
+    border-radius: 18px;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .ugc-video-wrap.playing .ugc-overlay { opacity: 0; }
+
+  .ugc-play-btn {
+    position: absolute; z-index: 3;
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--terracotta);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform 0.2s, opacity 0.3s, background 0.2s;
+  }
+  .ugc-play-btn svg { width: 24px; height: 24px; margin-left: 3px; }
+  .ugc-play-btn:hover { background: #fff; transform: translate(-50%, -50%) scale(1.1); }
+  .ugc-video-wrap.playing .ugc-play-btn { opacity: 0; pointer-events: none; }
+  .ugc-video-wrap.playing:hover .ugc-play-btn { opacity: 0.7; pointer-events: auto; }
+
+  .ugc-card-label {
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--forest);
+    padding-left: 4px;
+  }
+  .ugc-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: var(--terracotta); flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) { .ugc-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 480px)  { .ugc-grid { grid-template-columns: repeat(2,1fr); gap:12px; } }
+</style>
+
+<script>
+  // UGC video play/pause toggle
+  document.querySelectorAll('.ugc-video-wrap').forEach(wrap => {
+    const video = wrap.querySelector('.ugc-video');
+    const btn   = wrap.querySelector('.ugc-play-btn');
+
+    wrap.addEventListener('click', () => {
+      if (video.paused) {
+        // Pause all other UGC videos first
+        document.querySelectorAll('.ugc-video').forEach(v => { if (v !== video) { v.pause(); v.closest('.ugc-video-wrap').classList.remove('playing'); } });
+        video.muted = false;
+        video.play();
+        wrap.classList.add('playing');
+      } else {
+        video.pause();
+        wrap.classList.remove('playing');
+      }
+    });
+  });
+</script>
+
 <!-- ─── FINAL CTA ─── -->
 <section id="final-cta" class="grain">
   <div class="cta-inner">
