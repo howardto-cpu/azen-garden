@@ -783,7 +783,7 @@
       <p class="fade-up fade-up-delay-1" style="font-size:16px; color:#666; margin-top:12px;">Verified Amazon reviews from real customers.</p>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+    <div class="reviews-grid">
 
       <div class="review-card fade-up">
         <div class="review-stars">★★★★★</div>
@@ -891,12 +891,15 @@
   }
   .review-name { font-size: 14px; font-weight: 700; color: var(--ink); }
   .review-source { font-size: 11px; color: #8a7a65; margin-top: 1px; }
-  @media (max-width: 768px) {
-    #reviews .section-inner > div:first-of-type + div { grid-template-columns: 1fr; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
-  @media (max-width: 1024px) {
-    #reviews .section-inner > div:first-of-type + div { grid-template-columns: repeat(2,1fr); }
-  }
+  @media (max-width: 1024px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px)  { .reviews-grid { grid-template-columns: 1fr; gap: 14px; } }
+  @media (max-width: 600px)  { .review-card  { padding: 20px 16px; } }
+  @media (max-width: 600px)  { .section-wrap { padding: 64px 16px; } }
 </style>
 
 <!-- ─── UGC VIDEOS ─── -->
