@@ -913,10 +913,11 @@
       </p>
     </div>
 
-    <div class="ugc-grid">
+    <!-- Horizontal videos: 2 columns, 16:9 -->
+    <div class="ugc-grid ugc-grid-horizontal">
 
       <div class="ugc-card fade-up">
-        <div class="ugc-video-wrap">
+        <div class="ugc-video-wrap ugc-horizontal">
           <video loop muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-886739.mp4" type="video/mp4" />
           </video>
@@ -925,46 +926,11 @@
           </button>
           <div class="ugc-overlay"></div>
         </div>
-        <div class="ugc-card-label">
-          <span class="ugc-dot"></span>
-          Customer Review
-        </div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
       </div>
 
       <div class="ugc-card fade-up fade-up-delay-1">
-        <div class="ugc-video-wrap">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
-            <source src="brand_assets/UGC/content-387754.mp4" type="video/mp4" />
-          </video>
-          <button class="ugc-play-btn" aria-label="Play video">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="ugc-overlay"></div>
-        </div>
-        <div class="ugc-card-label">
-          <span class="ugc-dot"></span>
-          Customer Review
-        </div>
-      </div>
-
-      <div class="ugc-card fade-up fade-up-delay-2">
-        <div class="ugc-video-wrap">
-          <video loop muted playsinline preload="metadata" class="ugc-video">
-            <source src="brand_assets/UGC/content-389450.mp4" type="video/mp4" />
-          </video>
-          <button class="ugc-play-btn" aria-label="Play video">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-          <div class="ugc-overlay"></div>
-        </div>
-        <div class="ugc-card-label">
-          <span class="ugc-dot"></span>
-          Customer Review
-        </div>
-      </div>
-
-      <div class="ugc-card fade-up fade-up-delay-3">
-        <div class="ugc-video-wrap">
+        <div class="ugc-video-wrap ugc-horizontal">
           <video loop muted playsinline preload="metadata" class="ugc-video">
             <source src="brand_assets/UGC/content-984709.mp4" type="video/mp4" />
           </video>
@@ -973,10 +939,38 @@
           </button>
           <div class="ugc-overlay"></div>
         </div>
-        <div class="ugc-card-label">
-          <span class="ugc-dot"></span>
-          Customer Review
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
+      </div>
+
+    </div>
+
+    <!-- Vertical videos: 4 columns centred, 9:16 -->
+    <div class="ugc-grid ugc-grid-vertical">
+
+      <div class="ugc-card fade-up fade-up-delay-1">
+        <div class="ugc-video-wrap ugc-vertical">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-387754.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
         </div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
+      </div>
+
+      <div class="ugc-card fade-up fade-up-delay-2">
+        <div class="ugc-video-wrap ugc-vertical">
+          <video loop muted playsinline preload="metadata" class="ugc-video">
+            <source src="brand_assets/UGC/content-389450.mp4" type="video/mp4" />
+          </video>
+          <button class="ugc-play-btn" aria-label="Play video">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="ugc-overlay"></div>
+        </div>
+        <div class="ugc-card-label"><span class="ugc-dot"></span>Customer Review</div>
       </div>
 
     </div>
@@ -984,34 +978,26 @@
 </section>
 
 <style>
-  .ugc-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
+  .ugc-grid { display: grid; gap: 20px; }
+  .ugc-grid-horizontal { grid-template-columns: repeat(2, 1fr); margin-bottom: 20px; }
+  .ugc-grid-vertical   { grid-template-columns: repeat(2, 1fr); max-width: 640px; margin: 0 auto; }
 
-  .ugc-card {
-    display: flex; flex-direction: column; gap: 12px;
-  }
+  .ugc-card { display: flex; flex-direction: column; gap: 12px; }
 
   .ugc-video-wrap {
     position: relative;
-    aspect-ratio: 9 / 16;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #1a1a1a;
-    cursor: pointer;
+    border-radius: 18px; overflow: hidden;
+    background: #1a1a1a; cursor: pointer;
     box-shadow: 0 8px 32px rgba(27,94,63,0.15), 0 2px 8px rgba(27,94,63,0.08);
     border: 1px solid rgba(168,213,186,0.3);
   }
+  .ugc-horizontal { aspect-ratio: 16 / 9; }
+  .ugc-vertical   { aspect-ratio: 9 / 16; }
 
   .ugc-video-wrap::before {
-    content: '';
-    position: absolute;
-    top: -12px; right: -12px; bottom: 12px; left: 12px;
-    background: var(--sage-light);
-    border-radius: 18px;
-    z-index: 0;
+    content: ''; position: absolute;
+    top: -10px; right: -10px; bottom: 10px; left: 10px;
+    background: var(--sage-light); border-radius: 18px; z-index: 0;
   }
 
   .ugc-video {
@@ -1061,8 +1047,10 @@
     background: var(--terracotta); flex-shrink: 0;
   }
 
-  @media (max-width: 1024px) { .ugc-grid { grid-template-columns: repeat(2,1fr); } }
-  @media (max-width: 480px)  { .ugc-grid { grid-template-columns: repeat(2,1fr); gap:12px; } }
+  @media (max-width: 768px) {
+    .ugc-grid-horizontal { grid-template-columns: 1fr; }
+    .ugc-grid-vertical   { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+  }
 </style>
 
 <script>
